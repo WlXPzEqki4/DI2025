@@ -1696,10 +1696,14 @@ const MainDashboard = () => {
         className="h-screen overflow-y-auto w-full"
 
       >
-        <div className="snap-start">
+        {/* <div className="snap-start"> */}
+        <div>
+
           <LandingPage />
         </div>
-        <div className="snap-start">
+        {/* <div className="snap-start"> */}
+        <div>
+
           <div className={`min-h-screen transition-all duration-300 ease-in-out
             ${showSidebar ? (isExpanded ? 'pl-72' : 'pl-20') : 'pl-0'}`}
           >
