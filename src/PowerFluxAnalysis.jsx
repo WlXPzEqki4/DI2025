@@ -223,7 +223,7 @@ import React, { useState } from 'react';
 import { Globe2, TrendingUp, Anchor, AlertCircle, Wind } from 'lucide-react';
 import RiskInterconnections from './RiskInterconnections';
 import RiskAnalysis from './RiskAnalysis';
-
+import WildcardAnalysis_1 from './WildcardAnalysis_1';
 
 const WildcardCard = ({ title, riskLevel, description, impacts, isExpanded, onClick }) => {
   return (
@@ -442,15 +442,15 @@ const PowerFluxAnalysis = () => {
       </div>
 
 
-
-
-
-
-
-
-
-
-
+      <div className="mt-16 pt-8 border-t border-gray-200">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-bold">Risk Scenarios</h2>
+          {/* <p className="text-gray-600 mt-2">
+          Explore how geopolitical events trigger cascading effects across multiple domains
+          </p> */}
+        </div>
+        <WildcardAnalysis_1 />
+      </div>
 
     </div>
   );

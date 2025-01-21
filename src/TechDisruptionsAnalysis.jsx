@@ -211,6 +211,8 @@ import React, { useState } from 'react';
 import { Brain, Shield, Zap } from 'lucide-react';
 import TechnologyDisruptionTimeline from './TechnologyDisruptionTimeline';
 import ImpactNetwork from './ImpactNetwork';
+import WildcardAnalysis_2 from './WildcardAnalysis_2';
+
 
 const DisruptionCard = ({ title, riskLevel, description, impacts, implications, icon: Icon, isExpanded, onClick }) => {
   return (
@@ -420,7 +422,15 @@ const TechDisruptionsAnalysis = () => {
 
 
 
-
+      <div className="mt-16 pt-8 border-t border-gray-200">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-bold">Risk Scenarios</h2>
+          {/* <p className="text-gray-600 mt-2">
+          Explore how geopolitical events trigger cascading effects across multiple domains
+          </p> */}
+        </div>
+        <WildcardAnalysis_2 />
+      </div>
 
 
 

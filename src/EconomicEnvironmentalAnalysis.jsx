@@ -192,6 +192,7 @@ import React, { useState } from 'react';
 import { TrendingDown, Dna, Leaf, AlertTriangle } from 'lucide-react';
 import EconomicEnvironmentalDisruptionAnalysis from './EconomicEnvironmentalDisruptionAnalysis';
 import SystemResilienceAnalysis from './SystemResilienceAnalysis';
+import WildcardAnalysis_4 from './WildcardAnalysis_4';
 
 
 const DisruptionCard = ({ title, riskLevel, description, implications, scenarios, icon: Icon, isExpanded, onClick }) => {
@@ -388,7 +389,15 @@ const EconomicEnvironmentalAnalysis = () => {
 
 
 
-
+      <div className="mt-16 pt-8 border-t border-gray-200">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-bold">Risk Scenarios</h2>
+          {/* <p className="text-gray-600 mt-2">
+          Explore how geopolitical events trigger cascading effects across multiple domains
+          </p> */}
+        </div>
+        <WildcardAnalysis_4 />
+      </div>
       
 
 
