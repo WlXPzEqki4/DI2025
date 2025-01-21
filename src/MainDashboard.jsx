@@ -1692,7 +1692,9 @@ const MainDashboard = () => {
       
       <main 
         id="main-content"
-        className="snap-y snap-mandatory h-screen overflow-y-auto w-full"
+        // className="snap-y snap-mandatory h-screen overflow-y-auto w-full"
+        className="h-screen overflow-y-auto w-full"
+
       >
         <div className="snap-start">
           <LandingPage />
