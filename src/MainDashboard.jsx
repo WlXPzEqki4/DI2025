@@ -1581,7 +1581,7 @@ const Sidebar = ({ isExpanded, setIsExpanded, activeView, setActiveView, show })
         { id: 'tech', label: 'Technological Disruptions', icon: Cpu },
         { id: 'security', label: 'Security & Infrastructure', icon: Shield },
         { id: 'economic', label: 'Economic & Environmental', icon: TrendingDown },
-        { id: 'complacency', label: 'Complacency Isights', icon: AlertTriangle },
+        { id: 'complacency', label: 'Complacency Insights', icon: AlertTriangle },
         { id: 'contact', label: 'Contact Details', icon: Mail }
       ];
 
