@@ -40,11 +40,32 @@ const CollapsibleSection = ({
       >
         {icon}
         <h2 className="font-semibold text-gray-800 flex-grow">{title}</h2>
-        {warning && (
+
+        {/* {warning && (
           <div className="bg-yellow-500 text-white px-3 py-1 rounded mr-2">
             {warning}
           </div>
-        )}
+        )} */}
+
+
+{warning && (
+  <span className={`px-3 py-1 rounded-full text-sm ${
+    warning === 'MEDIUM' ? 'bg-yellow-200' :
+    warning === 'HIGH' ? 'bg-orange-200' :
+    warning === 'LOW' ? 'bg-green-200' :
+    warning === 'VERY LOW' ? 'bg-blue-200' :
+    warning === 'VERY HIGH' ? 'bg-orange-200' :
+    'bg-red-200'
+  }`}>
+    {warning}
+  </span>
+)}
+
+
+
+
+
+
         {isOpen ? (
           <ChevronUp className="text-gray-500" />
         ) : (

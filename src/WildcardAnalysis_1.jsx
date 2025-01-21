@@ -13,6 +13,62 @@ import {
   AlertOctagon
 } from 'lucide-react';
 
+
+
+
+
+
+
+// const CollapsibleSection = ({ 
+//   icon, 
+//   title, 
+//   children, 
+//   defaultOpen = false, 
+//   className = "", 
+//   warning = null,
+//   onToggle = null  // Added callback for animation triggers
+// }) => {
+//   const [isOpen, setIsOpen] = useState(defaultOpen);
+  
+//   const handleToggle = () => {
+//     const newState = !isOpen;
+//     setIsOpen(newState);
+//     if (onToggle) {
+//       onToggle(newState);
+//     }
+//   };
+  
+//   return (
+//     <div className={`border rounded-lg bg-white shadow-sm ${className}`}>
+//       <div 
+//         className="flex items-center gap-2 cursor-pointer p-4"
+//         onClick={handleToggle}
+//       >
+//         {icon}
+//         <h2 className="font-semibold text-gray-800 flex-grow">{title}</h2>
+//         {warning && (
+//           <div className="bg-yellow-500 text-white px-3 py-1 rounded mr-2">
+//             {warning}
+//           </div>
+//         )}
+//         {isOpen ? (
+//           <ChevronUp className="text-gray-500" />
+//         ) : (
+//           <ChevronDown className="text-gray-500" />
+//         )}
+//       </div>
+//       {isOpen && <div className="px-4 pb-4">{children}</div>}
+//     </div>
+//   );
+// };
+
+
+
+
+
+
+
+
 const CollapsibleSection = ({ 
   icon, 
   title, 
@@ -41,9 +97,14 @@ const CollapsibleSection = ({
         {icon}
         <h2 className="font-semibold text-gray-800 flex-grow">{title}</h2>
         {warning && (
-          <div className="bg-yellow-500 text-white px-3 py-1 rounded mr-2">
+          <span className={`px-3 py-1 rounded-full text-sm ${
+            warning === 'MEDIUM' ? 'bg-yellow-200' :
+            warning === 'HIGH' ? 'bg-orange-100' :
+            warning === 'LOW' ? 'bg-green-200' :
+            'bg-red-200'
+          }`}>
             {warning}
-          </div>
+          </span>
         )}
         {isOpen ? (
           <ChevronUp className="text-gray-500" />
@@ -55,6 +116,18 @@ const CollapsibleSection = ({
     </div>
   );
 };
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Separate Pathway Card component with animation
 const PathwayCard = ({ pathway, index, isVisible }) => (
@@ -74,13 +147,6 @@ const PathwayCard = ({ pathway, index, isVisible }) => (
     <p className="text-gray-600">{pathway.description}</p>
   </div>
 );
-
-
-
-
-
-
-
 
 
 // Animation-enabled Pathways Section

@@ -1338,8 +1338,25 @@
 // export default RiskGrid;
 
 
+
+
+
+
+
+
+
 import React, { useState } from 'react';
 import { Globe2, Cpu, Shield, TrendingDown } from 'lucide-react';
+import InteractiveChord from './InteractiveChord';
+
+
+import ModularRiskDashboard from "./ModularRiskDashboard";
+import StrategicSunburstDuplicate from './StrategicSunburstDuplicate';
+import SankeyChart from './SankeyChart';
+import GlobeComponent from './GlobeComponent';
+import StrategicSunburstOriginal from './StrategicSunburstOriginal';
+import StrategicSunburstOriginalDuplicate from './StrategicSunburstOriginalDuplicate';
+
 
 const ThemeCard = ({ icon: Icon, title, warning, description, isActive, onClick }) => {
   return (
@@ -1536,7 +1553,11 @@ const RiskGrid = () => {
         <h2 className="text-xl text-gray-600">Wildcard Scenarios for the UAE</h2>
       </div>
 
-      <div className="mb-12 space-y-8">
+
+
+
+
+      {/* <div className="mb-12 space-y-8">
         <div>
           <h3 className="font-bold text-lg mb-3">Background</h3>
           <p className="text-gray-800 leading-relaxed">
@@ -1572,6 +1593,58 @@ const RiskGrid = () => {
           </p>
         </div>
       </div>
+ */}
+
+<div className="mb-12 flex gap-8">
+        <div className="w-1/2 space-y-8">
+          <div>
+            <h3 className="font-bold text-lg mb-3">Background</h3>
+            <p className="text-gray-800 leading-relaxed">
+              The greatest risk is complacency. In 2025, the UAE's strategic landscape is shaped by interconnected geopolitical, technological, infrastructural,
+              and economic wildcard scenarios that present both risks and opportunities. This report examines these
+              dynamics comprehensively, offering insights into pathways for escalation and key indicators to enhance national
+              resilience and maintain the UAE's global edge.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-lg mb-3">Methodology</h3>
+            <p className="text-gray-800 leading-relaxed">
+              This report applies a multi-dimensional analysis framework, integrating geopolitical, technological,
+              infrastructural, and economic domains. Each section explores specific wildcard scenarios and their
+              interdependencies, identifying risks, pathways for escalation, and observable indicators. The analysis
+              underscores the UAE's need for strategic adaptability to mitigate vulnerabilities and capitalize on opportunities
+              in an evolving global landscape. Many of the threats are interconnected and have cascading, complex impacts.
+              The interconnected nature of these challenges is a key part of 2025's risk landscape, and it means that the
+              mitigation strategies must also be interconnected.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-lg mb-3">2025's Most Dangerous Ideas – How to Use This Report</h3>
+            <p className="text-gray-800 leading-relaxed">
+              The report is organized into four thematic sections, shown below.
+              This report is designed to assist readers by providing a framework to navigate its content effectively. The report
+              offers a structured approach for identifying scenarios most relevant to specific strategic areas. The risk/impact
+              matrix, provided below, serves as a tool to support prioritization. Examining interdependencies between
+              scenarios can also reveal cascading risks and opportunities, offering a holistic view of the challenges and
+              potential strategies for addressing them.
+            </p>
+          </div>
+        </div>
+        
+        <div className="w-1/2">
+          <h3 className="font-bold text-lg mb-3">Interactive Chord Diagram</h3>
+          <div className="bg-gray-0 p-6 rounded-lg h-full">
+            {/* Placeholder for new content */}
+            <p className="text-gray-800 leading-relaxed">Chord diagram below indicates the relationships between thematic areas, wildcard risks and outcomes.</p>
+              <InteractiveChord />
+          </div>
+        </div>
+      </div>
+
+
+
 
       <h3 className="font-bold text-lg mb-3">Thematic Areas</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -1651,6 +1724,38 @@ const RiskGrid = () => {
         </div>
       )}
 
+
+
+
+
+
+
+
+      {/* Render the original sunburst */}
+      <StrategicSunburstOriginal />
+      
+      {/* Render the sunburst */}
+      <StrategicSunburstDuplicate />
+
+      {/* Render the original sunburst duplicate */}
+      <StrategicSunburstOriginalDuplicate />
+
+      {/* Render the chord diagram */}
+      <InteractiveChord />
+
+      {/* Render the sankey chart */}
+      <SankeyChart />
+
+      {/* Render the spinning globe */}
+      <GlobeComponent />
+
+      {/* <RiskDashboard /> */}
+      <ModularRiskDashboard />
+
+
+
+
+
       <div className="mt-8">
         <p className="text-orange-500 text-3xl font-bold text-center">
           The Greatest Risk is Complacency
@@ -1661,4 +1766,12 @@ const RiskGrid = () => {
 };
 
 export default RiskGrid;
+
+
+
+
+
+
+
+
 

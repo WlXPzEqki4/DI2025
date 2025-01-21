@@ -267,6 +267,7 @@ const FaultLineCard = ({ title, riskLevel, description, threats, mitigations, ic
             riskLevel === 'HIGH' ? 'bg-red-200 text-red-800' :
             riskLevel === 'MEDIUM' ? 'bg-yellow-200 text-yellow-800' :
             riskLevel === 'LOW' ? 'bg-green-200 text-green-800' :
+            riskLevel === 'VERY LOW' ? 'bg-blue-200 text-green-800' :
             'bg-gray-200 text-gray-800'
           }`}>
             {riskLevel}
