@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import TimelinePathways from './TimelinePathways';
+
 import { 
   AlertTriangle, 
   CheckCircle, 
@@ -477,6 +479,13 @@ target.
           
           <PathwaysSection_1_of_4 />
 
+
+          {/* Timeline View */}
+          <TimelinePathways />
+
+
+
+
           {/* Risk Indicators */}
           <CollapsibleSection 
             icon={<AlertTriangle className="text-red-500" />}
@@ -614,6 +623,14 @@ computational resources, impeding economic growth and innovation.</p>
           {/* Pathways */}
           {/* <PathwaysSection /> */}
           <PathwaysSection_2_of_4 />
+
+
+          {/* Timeline View */}
+          <TimelinePathways />
+
+
+
+
 
           {/* Risk Indicators */}
           <CollapsibleSection 
@@ -771,6 +788,12 @@ in space governance could isolate the UAE from vital knowledge-sharing opportuni
           <PathwaysSection_3_of_4 />
 
 
+          {/* Timeline View */}
+          <TimelinePathways />
+
+
+
+
           {/* Risk Indicators */}
           <CollapsibleSection 
             icon={<AlertTriangle className="text-red-500" />}
@@ -909,6 +932,13 @@ ambitions in AI and advanced digital solutions.
           {/* Pathways */}
           {/* <PathwaysSection /> */}
           <PathwaysSection_4_of_4 />
+
+
+
+          {/* Timeline View */}
+          <TimelinePathways />
+
+
 
 
           {/* Risk Indicators */}

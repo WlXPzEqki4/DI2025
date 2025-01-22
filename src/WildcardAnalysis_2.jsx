@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import TimelinePathways from './TimelinePathways';
+
 import { 
   AlertTriangle, 
   CheckCircle, 
@@ -405,6 +407,13 @@ competitiveness, and compromising national security
           
           <PathwaysSection_1_of_3 />
 
+
+          {/* Timeline View */}
+          <TimelinePathways />
+
+
+
+
           {/* Risk Indicators */}
           <CollapsibleSection 
             icon={<AlertTriangle className="text-red-500" />}
@@ -536,6 +545,12 @@ risks of espionage and data breaches, undermining both government and private se
           {/* Pathways */}
           {/* <PathwaysSection /> */}
           <PathwaysSection_2_of_3 />
+
+
+          {/* Timeline View */}
+          <TimelinePathways />
+
+
 
           {/* Risk Indicators */}
           <CollapsibleSection 
@@ -679,6 +694,13 @@ transformative technological shift while preserving national security and econom
           {/* Pathways */}
           {/* <PathwaysSection /> */}
           <PathwaysSection_3_of_3 />
+
+
+          {/* Timeline View */}
+          <TimelinePathways />
+
+
+
 
 
           {/* Risk Indicators */}

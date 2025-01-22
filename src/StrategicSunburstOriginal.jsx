@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 import React, { useState } from 'react';
 
 // Arrow-shaped breadcrumb CSS (same as before)
@@ -90,6 +83,20 @@ const StrategicSunburst = () => {
   const SVG_SIZE = 1000;
   const CENTER = SVG_SIZE / 2;        // 400
   const RADIUS = SVG_SIZE / 2 - 100; // 300
+
+  // Add the palettes definition here, at component level
+  const palettes = {
+    colors: [
+      ['#1B2631', '#34495E', '#5D6D7E', '#85929E'], // Steel
+      ['#4A235A', '#6C3483', '#8E44AD', '#AF7AC5'], // Plum
+      ['#0B5345', '#145A32', '#196F3D', '#229954'], // Forest
+      ['#5B370C', '#784212', '#9A4D1C', '#B86232'], // Rust
+      ['#4A1B12', '#641E16', '#7B241C', '#922B21'], // Wine
+      ['#0A4B3E', '#0E6655', '#117A65', '#148F77']  // Pine
+    ]
+  };
+
+
 
   const [hoveredPath, setHoveredPath] = useState(null);
   const [tooltipInfo, setTooltipInfo] = useState(null);
@@ -277,6 +284,15 @@ const StrategicSunburst = () => {
     return true;
   };
 
+
+  const getColorForLevel = (metaThemeIndex, level, shouldFadeValue = false) => {
+    const colorSet = palettes.colors[metaThemeIndex % palettes.colors.length];
+    const baseColor = colorSet[level];
+    return shouldFadeValue ? `${baseColor}40` : baseColor;
+  };
+
+
+
   // Helper for polar calculations
   const polarToCartesian = (angle, radius) => {
     const angleInRadians = (angle - 90) * Math.PI / 180;
@@ -332,9 +348,13 @@ const StrategicSunburst = () => {
               0,
               RADIUS * 0.25
             )}
-            fill={`hsl(${baseHue}, ${
-              shouldFade(metaTheme) ? '15%' : '70%'
-            }, ${shouldFade(metaTheme) ? '93%' : '50%'})`}
+
+            // fill={`hsl(${baseHue}, ${
+            //   shouldFade(metaTheme) ? '15%' : '70%'
+            // }, ${shouldFade(metaTheme) ? '93%' : '50%'})`}
+            fill={getColorForLevel(metaIndex, 0, shouldFade(metaTheme))}
+
+
             stroke="white"
             strokeWidth="1"
             onMouseEnter={(e) => handleSegmentHover(e, { metaTheme }, metaIndex)}
@@ -358,9 +378,13 @@ const StrategicSunburst = () => {
                     RADIUS * 0.25,
                     RADIUS * 0.5
                   )}
-                  fill={`hsl(${baseHue}, ${
-                    shouldFade(metaTheme, theme) ? '15%' : '70%'
-                  }, ${shouldFade(metaTheme, theme) ? '93%' : '50%'})`}
+
+                //   fill={`hsl(${baseHue}, ${
+                //     shouldFade(metaTheme, theme) ? '15%' : '70%'
+                //   }, ${shouldFade(metaTheme, theme) ? '93%' : '50%'})`}
+                fill={getColorForLevel(metaIndex, 1, shouldFade(metaTheme, theme))}
+
+
                   stroke="white"
                   strokeWidth="1"
                   onMouseEnter={(e) =>
@@ -386,9 +410,13 @@ const StrategicSunburst = () => {
                           RADIUS * 0.5,
                           RADIUS * 0.75
                         )}
-                        fill={`hsl(${baseHue}, ${
-                          shouldFade(metaTheme, theme, wildcard) ? '15%' : '70%'
-                        }, ${shouldFade(metaTheme, theme, wildcard) ? '93%' : '50%'})`}
+
+                        // fill={`hsl(${baseHue}, ${
+                        //   shouldFade(metaTheme, theme, wildcard) ? '15%' : '70%'
+                        // }, ${shouldFade(metaTheme, theme, wildcard) ? '93%' : '50%'})`}
+                        fill={getColorForLevel(metaIndex, 2, shouldFade(metaTheme, theme, wildcard))}
+
+
                         stroke="white"
                         strokeWidth="1"
                         onMouseEnter={(e) =>
@@ -409,13 +437,18 @@ const StrategicSunburst = () => {
                             RADIUS * 0.75,
                             RADIUS
                           )}
-                          fill={`hsl(${baseHue}, ${
-                            shouldFade(metaTheme, theme, wildcard, outcome) ? '15%' : '70%'
-                          }, ${
-                            shouldFade(metaTheme, theme, wildcard, outcome)
-                              ? '93%'
-                              : '50%'
-                          })`}
+
+                        //   fill={`hsl(${baseHue}, ${
+                        //     shouldFade(metaTheme, theme, wildcard, outcome) ? '15%' : '70%'
+                        //   }, ${
+                        //     shouldFade(metaTheme, theme, wildcard, outcome)
+                        //       ? '93%'
+                        //       : '50%'
+                        //   })`}
+                        fill={getColorForLevel(metaIndex, 3, shouldFade(metaTheme, theme, wildcard, outcome))}
+
+
+
                           stroke="white"
                           strokeWidth="1"
                           onMouseEnter={(e) =>
@@ -477,7 +510,7 @@ const StrategicSunburst = () => {
               zIndex: 50
             }}
           >
-            {hoveredPath.metaTheme && (
+            {/* {hoveredPath.metaTheme && (
               <div className={getArrowClass(1)}>
                 {hoveredPath.metaTheme}
               </div>
@@ -496,7 +529,31 @@ const StrategicSunburst = () => {
               <div className={getArrowClass(4)}>
                 {hoveredPath.outcome}
               </div>
-            )}
+            )} */}
+
+
+{hoveredPath.metaTheme && (
+  <div className={getArrowClass(1)}>
+    <span className="font-bold">Strategic-theme: </span>{hoveredPath.metaTheme}
+  </div>
+)}
+{hoveredPath.theme && (
+  <div className={getArrowClass(2)}>
+    <span className="font-bold">Theme: </span>{hoveredPath.theme}
+  </div>
+)}
+{hoveredPath.wildcard && (
+  <div className={getArrowClass(3)}>
+    <span className="font-bold">Wildcard: </span>{hoveredPath.wildcard}
+  </div>
+)}
+{hoveredPath.outcome && (
+  <div className={getArrowClass(4)}>
+    <span className="font-bold">Outcome: </span>{hoveredPath.outcome}
+  </div>
+)}
+
+
           </div>
         )}
 
@@ -513,9 +570,59 @@ const StrategicSunburst = () => {
             viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}
             style={{ overflow: "visible" }}
           >
+
+
+
+
+{/* Legend */}
+            <g transform="translate(1050, 200)">
+            <text x="0" y="0" className="font-medium text-lg">Legend</text>
+            
+            {/* Level 1 - Meta-Theme */}
+            <g transform="translate(0, 30)">
+              <rect width="30" height="30" fill="#2a4365" />
+              <text x="45" y="20" className="text-sm">Level 1: Meta-Theme</text>
+            </g>
+            
+            {/* Level 2 - Theme */}
+            <g transform="translate(0, 70)">
+              <rect width="30" height="30" fill="#2b6cb0" />
+              <text x="45" y="20" className="text-sm">Level 2: Theme</text>
+            </g>
+            
+            {/* Level 3 - Wildcard */}
+            <g transform="translate(0, 110)">
+              <rect width="30" height="30" fill="#ed8936" />
+              <text x="45" y="20" className="text-sm">Level 3: Wildcard</text>
+            </g>
+            
+            {/* Level 4 - Outcome */}
+            <g transform="translate(0, 150)">
+              <rect width="30" height="30" fill="#ecc94b" />
+              <text x="45" y="20" className="text-sm">Level 4: Outcome</text>
+            </g>
+
+            {/* Description */}
+            <text x="0" y="200" className="text-xs">
+              <tspan x="0" dy="0">Hover over segments to see the</tspan>
+              <tspan x="0" dy="20">complete path from Meta-Theme</tspan>
+              <tspan x="0" dy="20">to Outcome</tspan>
+            </text>
+          </g>
+
+
+
+
+
+
+
+
             {renderSunburst()}
 
-            {tooltipInfo && (
+
+
+
+            {/* {tooltipInfo && (
               <g>
                 <path
                   d={`
@@ -527,7 +634,6 @@ const StrategicSunburst = () => {
                   stroke="black"
                   strokeWidth="1.5"
                   className="opacity-60"
-                  /* Make path ignore mouse events: */
                   style={{ pointerEvents: 'none' }}
                 />
                 
@@ -536,10 +642,6 @@ const StrategicSunburst = () => {
                   y={tooltipInfo.tipY - 50}
                   width="200"
                   height="100"
-                  /* If you want the tooltip itself to also ignore mouse: 
-                     style={{ pointerEvents: 'none' }} 
-                     (but then you can't click / copy text etc.) 
-                  */
                 >
                   <div
                     style={{
@@ -556,11 +658,14 @@ const StrategicSunburst = () => {
                   </div>
                 </foreignObject>
               </g>
-            )}
+            )} */}
+
+
+
           </svg>
         </div>
 
-        <div className="mt-8 text-center px-4 pb-8">
+        {/* <div className="mt-8 text-center px-4 pb-8">
           {hoveredPath && (
             <div className="space-y-2">
               {hoveredPath.metaTheme && (
@@ -586,6 +691,14 @@ const StrategicSunburst = () => {
             </div>
           )}
         </div>
+ */}
+
+
+<div className="mt-8 text-center w-full text-2xl font-bold text-gray-900">
+  Figure: Strategic Interconnections & Risk Pathways
+</div>
+
+
       </div>
     </div>
   );

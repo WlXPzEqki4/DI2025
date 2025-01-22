@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import TimelinePathways from './TimelinePathways';
+
+
 import { 
   AlertTriangle, 
   CheckCircle, 
@@ -567,6 +570,49 @@ const WildcardAnalysis = () => {
           
           <PathwaysSection_1_of_5 />
 
+
+
+
+
+
+
+
+
+
+
+
+
+          {/* Timeline View */}
+          <TimelinePathways />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           {/* Risk Indicators */}
           <CollapsibleSection 
             icon={<AlertTriangle className="text-red-500" />}
@@ -587,6 +633,10 @@ const WildcardAnalysis = () => {
               ))}
             </ul>
           </CollapsibleSection>
+
+
+
+
 
           {/* Mitigation Strategies */}
           <CollapsibleSection 
@@ -728,6 +778,14 @@ preserving Western              </p>
           {/* Pathways */}
           {/* <PathwaysSection /> */}
           <PathwaysSection_2_of_5 />
+
+
+          {/* Timeline View */}
+          <TimelinePathways />
+
+
+
+
 
           {/* Risk Indicators */}
           <CollapsibleSection 
@@ -891,6 +949,12 @@ regional alliances, potentially isolating the UAE or limiting its diplomatic man
           {/* <PathwaysSection /> */}
           <PathwaysSection_3_of_5 />
 
+          {/* Timeline View */}
+          <TimelinePathways />
+
+
+
+
 
           {/* Risk Indicators */}
           <CollapsibleSection 
@@ -1026,6 +1090,12 @@ miscalculation by regional actors.
           {/* Pathways */}
           {/* <PathwaysSection /> */}
           <PathwaysSection_4_of_5 />
+
+          {/* Timeline View */}
+          <TimelinePathways />
+
+
+
 
 
           {/* Risk Indicators */}
@@ -1165,6 +1235,16 @@ escalate regional conflicts, and expose the UAE to economic and security vulnera
           {/* Pathways */}
           {/* <PathwaysSection /> */}
           <PathwaysSection_5_of_5 />
+
+          {/* Timeline View */}
+          <TimelinePathways />
+
+
+
+
+
+
+
 
 
           {/* Risk Indicators */}

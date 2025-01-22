@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import TimelinePathways from './TimelinePathways';
+
 import { 
   AlertTriangle, 
   CheckCircle, 
@@ -341,6 +343,12 @@ this divide while maintaining neutrality will be critical to sustaining economic
           
           <PathwaysSection_1_of_2 />
 
+
+          {/* Timeline View */}
+          <TimelinePathways />
+
+
+
           {/* Risk Indicators */}
           <CollapsibleSection 
             icon={<AlertTriangle className="text-red-500" />}
@@ -473,6 +481,12 @@ future.
           {/* Pathways */}
           {/* <PathwaysSection /> */}
           <PathwaysSection_2_of_2 />
+
+
+          {/* Timeline View */}
+          <TimelinePathways />
+
+
 
           {/* Risk Indicators */}
           <CollapsibleSection 

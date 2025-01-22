@@ -14,7 +14,7 @@ const StrategicSunburst = () => {
 
   const [hoveredPath, setHoveredPath] = useState(null);
   const [tooltipInfo, setTooltipInfo] = useState(null);
-  const [selectedPalette, setSelectedPalette] = useState(0);
+  const [selectedPalette, setSelectedPalette] = useState(1);
 
   // Color palettes
   const palettes = [
@@ -374,7 +374,7 @@ const StrategicSunburst = () => {
 
   return (
     <div className="p-8 bg-white">
-      <div className="flex gap-4 mb-6 justify-center">
+      {/* <div className="flex gap-4 mb-6 justify-center">
         {palettes.map((palette, idx) => (
           <button
             key={palette.name}
@@ -388,7 +388,7 @@ const StrategicSunburst = () => {
             {palette.name}
           </button>
         ))}
-      </div>
+      </div> */}
 
       {/* <div className="relative w-full mx-auto max-w-6xl bg-white rounded-lg shadow-lg p-8"> */}
       <div className="relative w-full mx-auto max-w-6xl bg-white p-8">
